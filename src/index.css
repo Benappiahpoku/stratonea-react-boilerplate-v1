@@ -1,0 +1,36 @@
+/*
+  Stratonea Global Stylesheet
+  - Imports Tailwind layers
+  - Sets up mobile-first, touch-optimized base styles
+  - Follows Stratonea coding and documentation standards
+*/
+
+/* ===== Tailwind CSS Directives ===== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Layer: Global Styles ===== */
+@layer base {
+  :root {
+    /* Font and rendering optimizations for Ghanaian mobile users */
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Mobile-first styles should be applied using Tailwind utility classes in JSX */
+}
+
+/* ===== Components Layer: Buttons and Touch Targets ===== */
+@layer components {
+  /* No @apply: Use Tailwind utility classes directly in your JSX/TSX files.
+     Example:
+     <button className="px-4 py-2 bg-primary text-white rounded-stratonea transition-colors hover:bg-primary-hover min-h-[3rem] min-w-[3rem]">
+       Button
+     </button>
+  */
+}

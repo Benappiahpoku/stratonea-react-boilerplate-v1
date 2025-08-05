@@ -1,0 +1,12 @@
+/*
+  Root TypeScript configuration for Stratonea React app.
+  - References app and node configs for modularity.
+  - No direct compilerOptions here.
+*/
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
