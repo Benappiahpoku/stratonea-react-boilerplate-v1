@@ -3,28 +3,49 @@
   Stratonea Excalidraw App - Main Application Entry
 
   This file is the root React component for the application.
-  - Imports and renders the Home page as the main content.
+  - Sets up React Router for multi-page navigation.
+  - Uses a layout system (MainLayout) with <Outlet /> for nested routes.
   - Follows Stratonea coding guidelines: mobile-first, clear structure, and full comments.
-  - All styling is handled via Tailwind CSS utility classes in the Home component.
+  - All styling is handled via Tailwind CSS utility classes.
 */
 
 import React from "react";
-// <!-- ===== [New Feature] START: Import Home page component ===== -->
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainLayout from "./layouts/MainLayout";
 import Home from "./pages/Home";
-// <!-- ===== [New Feature] END ===== -->
+import About from "./pages/About";
+
 
 /**
  * App
  * Root component for the Stratonea Excalidraw App.
- * - Renders the Home page as the main content.
+ * - Sets up routing and layout for the app.
  * - Designed for mobile-first Ghanaian users.
  */
 const App: React.FC = () => {
   return (
     // <!-- Main app container -->
     <div className="min-h-screen bg-gray-50">
-      {/* Render the Home page */}
-      <Home />
+      {/* 
+      
+        - BrowserRouter enables client-side routing.
+        - MainLayout provides a consistent header and structure.
+        - <Outlet /> in MainLayout will render the active page.
+      */}
+
+      <BrowserRouter>
+        <Routes>
+          {/* All main routes go here, wrapped in MainLayout */}
+          <Route element={<MainLayout />}>
+            {/* Home page route */}
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            {/* Add more routes here as your app grows */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+     
     </div>
   );
 };
@@ -32,6 +53,6 @@ const App: React.FC = () => {
 export default App;
 
 /*
-  To extend this app, add routing and additional pages as needed.
+  To extend this app, add new routes inside <Routes> and create new page components.
   All new pages should follow Stratonea's mobile-first and offline-first guidelines.
 */
